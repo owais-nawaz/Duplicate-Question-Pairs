@@ -3,8 +3,6 @@ import helper
 import pickle
 
 et_model = pickle.load(open("model_et.pkl", "rb"))
-rf_model = pickle.load(open("rf_model.pkl", "rb"))
-xgb_model = pickle.load(open("xgb_model.pkl", "rb"))
 
 st.header("Check For Duplicate Question Pairs")
 
