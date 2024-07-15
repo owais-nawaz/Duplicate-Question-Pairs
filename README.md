@@ -1,5 +1,6 @@
-# Quora-Question-Pairs
-A NLP project to find weather given 2 questions are same or not semantically. 
+# Duplicate-Question-Pairs
+
+A NLP project to find weather given 2 questions are same or not semantically.
 
 Used both Machine Learning (Random Forest Classifier, XGB Classifier, Extra Trees Classifier) and Deep Learning (BiLSTM) models validate and test for better results
 
@@ -9,9 +10,11 @@ https://www.kaggle.com/c/quora-question-pairs
 
 ## Steps to run the stream-lit app:
 
-To access the streamlit website, in the terminal run the command - 
+To access the streamlit website, in the terminal run the command -
 
 `streamlit run app.py`
+
+go to `localhost:8501`
 
 ## Sample
 
