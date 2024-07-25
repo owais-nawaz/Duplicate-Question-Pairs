@@ -7,6 +7,8 @@ import numpy as np
 
 # Load models
 et_model = pickle.load(open("./streamlit-app/model_et.pkl", "rb"))
+rf_model = pickle.load(open("./streamlit-app/rf_model.pkl", "rb"))
+xgb_model = pickle.load(open("./streamlit-app/xgb_model.pkl", "rb"))
 try:
     bilstm_model = tf.keras.models.load_model("./streamlit-app/final_lstm_model.h5")
 except Exception as e:
@@ -18,7 +20,13 @@ def main():
 
     st.sidebar.title("Model Selection")
     model_choice = st.sidebar.selectbox(
-        "Choose a model", ("Extra Trees Classifier", "BiLSTM")
+        "Choose a model",
+        (
+            "BiLSTM",
+            "Extra Trees Classifier",
+            "Random Forest Classifier",
+            "XGB Classifier",
+        ),
     )
 
     st.header("Check For Duplicate Question Pairs")
@@ -29,6 +37,12 @@ def main():
     if st.button("Check"):
         result = None
         if model_choice == "Extra Trees Classifier":
+            query = helper.query_point_creator(q1, q2)
+            result = et_model.predict(query)[0]
+        elif model_choice == "Random Forest Classifier":
+            query = helper.query_point_creator(q1, q2)
+            result = et_model.predict(query)[0]
+        elif model_choice == "XGB Classifier":
             query = helper.query_point_creator(q1, q2)
             result = et_model.predict(query)[0]
         elif model_choice == "BiLSTM":
