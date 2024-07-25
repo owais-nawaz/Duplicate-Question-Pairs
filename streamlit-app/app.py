@@ -13,16 +13,6 @@ def load_et_model():
 
 
 @st.cache_resource
-def load_rf_model():
-    return pickle.load(open("./streamlit-app/rf_model.pkl", "rb"))
-
-
-@st.cache_resource
-def load_xgb_model():
-    return pickle.load(open("./streamlit-app/xgb_model.pkl", "rb"))
-
-
-@st.cache_resource
 def load_bilstm_model():
     try:
         return tf.keras.models.load_model("./streamlit-app/final_lstm_model.h5")
@@ -63,20 +53,6 @@ def main():
                 result = et_model.predict(query)[0]
             except Exception as e:
                 st.error(f"Error making prediction with Extra Trees model: {e}")
-        elif model_choice == "Random Forest Classifier":
-            rf_model = load_rf_model()
-            try:
-                query = helper.query_point_creator(q1, q2)
-                result = rf_model.predict(query)[0]
-            except Exception as e:
-                st.error(f"Error making prediction with Random Forest model: {e}")
-        elif model_choice == "XGB Classifier":
-            xgb_model = load_xgb_model()
-            try:
-                query = helper.query_point_creator(q1, q2)
-                result = xgb_model.predict(query)[0]
-            except Exception as e:
-                st.error(f"Error making prediction with XGB Classifier model: {e}")
         elif model_choice == "BiLSTM":
             bilstm_model = load_bilstm_model()
             if bilstm_model is not None:
