@@ -7,10 +7,6 @@ import pickle
 import streamlit as st
 
 # Load pre-trained components
-try:
-    bilstm_model = tf.keras.models.load_model("./streamlit-app/final_lstm_model.h5")
-except Exception as e:
-    st.error(f"Error loading BiLSTM model: {e}")
 from tensorflow.keras.preprocessing.text import Tokenizer
 
 tokens = Tokenizer(
