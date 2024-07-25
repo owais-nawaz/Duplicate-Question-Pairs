@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import sequence, text
 import pickle
+import streamlit as st
 
 # Load pre-trained components
 try:
