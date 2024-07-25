@@ -26,7 +26,7 @@ def main():
 
     st.sidebar.title("Model Selection")
     model_choice = st.sidebar.selectbox(
-        "Choose a model",
+        "Select a model",
         (
             "BiLSTM",
             "Extra Trees Classifier",
