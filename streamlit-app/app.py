@@ -30,8 +30,6 @@ def main():
         (
             "BiLSTM",
             "Extra Trees Classifier",
-            "Random Forest Classifier",
-            "XGB Classifier",
         ),
     )
 
